@@ -5,4 +5,8 @@ class Constants {
   static const String BASE_URL = SERVER_DOMAIN + "/api";
 
   static const String CATEGORY_ROUTE ="/categories";
+
+  static const String BRAND_ROUTE ="/brands";
+
+  static const String Product_ROUTE ="/products";
 }
