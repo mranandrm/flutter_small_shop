@@ -9,4 +9,12 @@ class Constants {
   static const String BRAND_ROUTE ="/brands";
 
   static const String Product_ROUTE ="/products";
+
+  static const String LOGIN_ROUTE = "/login";
+
+  static const String LOGOUT_ROUTE = "/logout";
+
+  static const String USER_ROUTE = "/user";
+
+  static const String REGISTER_ROUTE = "/register";
 }

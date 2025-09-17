@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_small_shop/screens/BrandScreen.dart';
 import 'package:flutter_small_shop/screens/CategoryScreen.dart';
+import 'package:flutter_small_shop/screens/HomeScreen.dart';
+import 'package:flutter_small_shop/screens/LoginScreen.dart';
 import 'package:flutter_small_shop/screens/ProductScreen.dart';
+import 'package:flutter_small_shop/screens/RegisterScreen.dart';
+import 'package:flutter_small_shop/services/AuthProvider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=> AuthProvider()),
+      ],
+      child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProductScreen(title: 'Product'),
+      home: HomeScreen(title: 'Home'),
     );
   }
 }
