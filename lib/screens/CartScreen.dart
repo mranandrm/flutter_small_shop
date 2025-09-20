@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -28,7 +29,15 @@ class _CartScreenState extends State<CartScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    // Run immediately once
     fetchData();
+
+    // Run every 5 seconds
+    Timer.periodic(Duration(seconds: 5), (timer) {
+      fetchData();
+    });
+
   }
 
   double getGrandTotalPrice() {

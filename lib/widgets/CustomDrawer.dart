@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_small_shop/screens/CartScreen.dart';
+import 'package:flutter_small_shop/screens/ProductScreen.dart';
 import 'package:provider/provider.dart';
 
 import '../screens/LoginScreen.dart';
@@ -34,6 +36,8 @@ class CustomDrawer extends StatelessWidget {
                     );
                   },
                 ),
+
+
               ],
             );
           } else {
@@ -65,6 +69,28 @@ class CustomDrawer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                   ),
+                ),
+                ListTile(
+                  title: Text('Products'),
+                  leading: Icon(Icons.production_quantity_limits),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProductScreen(title: 'Products')),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: Text('Cart'),
+                  leading: Icon(Icons.add_shopping_cart_sharp),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CartScreen(title: 'Carts')),
+                    );
+                  },
                 ),
                 ListTile(
                   title: Text('Logout'),

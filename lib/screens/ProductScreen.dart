@@ -5,6 +5,7 @@ import 'package:flutter_small_shop/models/Product.dart';
 import 'package:http/http.dart' as http;
 
 import '../util/Constants.dart';
+import 'ProductDetailScreen.dart';
 
 class ProductScreen extends StatefulWidget {
   final String title;
@@ -81,20 +82,35 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
 
       body: RefreshIndicator(
-          child: products.isEmpty ? Center(child: CircularProgressIndicator()): ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (context,index){
-                return ListTile(
-                    leading: Image.network(products[index].image),
-                    title: Text(products[index].name),
-                    onTap: (){
-                      // navigateToProductScreen(categories[index]);
-                    }
+        onRefresh: onRefresh,
+        child: products.isEmpty
+            ? const Center(child: CircularProgressIndicator())
+            : ListView.builder(
+          itemCount: products.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Image.network(
+                products[index].image,
+                width: 50,
+                height: 50,
+                fit: BoxFit.cover,
+              ),
+              title: Text(products[index].name),
+              subtitle: Text("₹ ${products[index].price}"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ProductDetailScreen(product: products[index]),
+                  ),
                 );
-              }
-          ) ,
-          onRefresh: onRefresh
+              },
+            );
+          },
+        ),
       ),
+
     );
   }
 }

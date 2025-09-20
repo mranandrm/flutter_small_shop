@@ -7,6 +7,7 @@ import 'package:flutter_small_shop/screens/LoginScreenOtp.dart';
 import 'package:flutter_small_shop/screens/ProductScreen.dart';
 import 'package:flutter_small_shop/screens/RegisterScreen.dart';
 import 'package:flutter_small_shop/services/AuthProvider.dart';
+import 'package:flutter_small_shop/services/CartProvider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -14,6 +15,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_)=> AuthProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MyApp(),
     )
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProductScreen(title: 'Product'),
+      home: HomeScreen(title: 'Home'),
     );
   }
 }
