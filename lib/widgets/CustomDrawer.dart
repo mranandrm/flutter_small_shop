@@ -93,6 +93,17 @@ class CustomDrawer extends StatelessWidget {
                   },
                 ),
                 ListTile(
+                  title: Text('My Orders'),
+                  leading: Icon(Icons.shopping_cart),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CartScreen(title: 'My Orders')),
+                    );
+                  },
+                ),
+                ListTile(
                   title: Text('Logout'),
                   leading: Icon(Icons.logout),
                   onTap: () {
