@@ -3,6 +3,7 @@ import 'package:flutter_small_shop/screens/BrandScreen.dart';
 import 'package:flutter_small_shop/screens/CategoryScreen.dart';
 import 'package:flutter_small_shop/screens/HomeScreen.dart';
 import 'package:flutter_small_shop/screens/LoginScreen.dart';
+import 'package:flutter_small_shop/screens/LoginScreenOtp.dart';
 import 'package:flutter_small_shop/screens/ProductScreen.dart';
 import 'package:flutter_small_shop/screens/RegisterScreen.dart';
 import 'package:flutter_small_shop/services/AuthProvider.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(title: 'Home'),
+      home: ProductScreen(title: 'Product'),
     );
   }
 }

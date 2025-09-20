@@ -17,4 +17,16 @@ class Constants {
   static const String USER_ROUTE = "/user";
 
   static const String REGISTER_ROUTE = "/register";
+
+  static const String CART_ROUTE = "/carts";
+
+  static const String ADD_TO_CART_ROUTE = "/add-to-cart";
+
+  static const String REMOVE_FROM_CART_ROUTE = "/remove-from-cart";
+
+  static const String CLEAR_CART_ROUTE = "/clear-cart";
+
+  static const String INCREASE_CART_QTY_ROUTE = "/increase-quantity";
+
+  static const String DECREASE_CART_QTY_ROUTE = "/decrease-quantity";
 }

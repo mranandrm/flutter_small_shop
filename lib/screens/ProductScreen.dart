@@ -87,8 +87,6 @@ class _ProductScreenState extends State<ProductScreen> {
                 return ListTile(
                     leading: Image.network(products[index].image),
                     title: Text(products[index].name),
-                    // description: Text(products[index].description),
-                    // price: Text(products[index].price),
                     onTap: (){
                       // navigateToProductScreen(categories[index]);
                     }
