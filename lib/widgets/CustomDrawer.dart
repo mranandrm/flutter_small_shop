@@ -41,6 +41,8 @@ class CustomDrawer extends StatelessWidget {
               ],
             );
           } else {
+
+            print(auth.user.toString());
             String avatar = auth.user?.avatar as String;
             String name = auth.user?.name as String;
             String email = auth.user?.email as String;
@@ -48,23 +50,25 @@ class CustomDrawer extends StatelessWidget {
             return ListView(
               children: [
                 DrawerHeader(
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(avatar),
-                        radius: 30,
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        name,
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        email,
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(avatar),
+                          radius: 30,
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          name,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          email,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

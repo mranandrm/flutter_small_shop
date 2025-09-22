@@ -29,4 +29,12 @@ class Constants {
   static const String INCREASE_CART_QTY_ROUTE = "/increase-quantity";
 
   static const String DECREASE_CART_QTY_ROUTE = "/decrease-quantity";
+
+  static const String ORDER_CONFIRM = "/order/confirm";
+
+  static const String ORDER_ROUTE = "/orders";
+
+  static const String ORDER_DELETE_ROUTE = "/orders";
+
+  static const String PRINT_RECEIPT_ROUTE = "/bluetooth/receipt/";
 }

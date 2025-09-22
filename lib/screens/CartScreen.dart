@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../services/CartProvider.dart';
 import '../util/Constants.dart';
+import 'PaymentSelectionScreen.dart';
 
 class CartScreen extends StatefulWidget {
 
@@ -224,14 +225,14 @@ class _CartScreenState extends State<CartScreen> {
             width: double.infinity, // Make button full width
             child: TextButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => PaymentSelectionScreen(
-                //       products: carts,
-                //     ),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PaymentSelectionScreen(
+                      products: carts,
+                    ),
+                  ),
+                );
               },
 
               child: Text(

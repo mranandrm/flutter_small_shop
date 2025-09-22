@@ -39,7 +39,7 @@ class AuthProvider extends ChangeNotifier {
      this.tryToken(token: token);
 
      _isLoggedIn = true;
-       notifyListeners();
+     notifyListeners();
    }
    catch (e){
 
@@ -52,11 +52,10 @@ class AuthProvider extends ChangeNotifier {
 
 
     if (token == null)
-      {
+    {
 
-        return;
-      }
-
+      return ;
+    }
     else{
 
       try{
@@ -68,6 +67,8 @@ class AuthProvider extends ChangeNotifier {
         _isLoggedIn = true;
 
         this._user = User.fromJson(response.data);
+
+        print(response.data);
 
         this._token = token;
 
