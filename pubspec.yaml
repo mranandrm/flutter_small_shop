@@ -44,6 +44,7 @@ dependencies:
   flutter_slidable: ^4.0.1
   package_info_plus: ^9.0.0
   shared_preferences: ^2.5.3
+  carousel_slider: ^5.1.1
 #  blue_thermal_printer: ^1.2.3
 
 dev_dependencies:

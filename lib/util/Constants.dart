@@ -37,4 +37,6 @@ class Constants {
   static const String ORDER_DELETE_ROUTE = "/orders";
 
   static const String PRINT_RECEIPT_ROUTE = "/bluetooth/receipt/";
+
+  static const String HOME_SLIDER_ROUTE = "/home-slider";
 }
