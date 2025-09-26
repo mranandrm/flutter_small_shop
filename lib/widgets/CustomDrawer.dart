@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_small_shop/screens/CartScreen.dart';
 import 'package:flutter_small_shop/screens/ProductScreen.dart';
+import 'package:flutter_small_shop/screens/SettingScreen.dart';
 import 'package:provider/provider.dart';
 
 import '../screens/LoginScreen.dart';
@@ -108,12 +109,24 @@ class CustomDrawer extends StatelessWidget {
                   },
                 ),
                 ListTile(
+                  title: Text('Setting'),
+                  leading: Icon(Icons.shopping_cart),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SettingScreen(title: 'Setting')),
+                    );
+                  },
+                ),
+                ListTile(
                   title: Text('Logout'),
                   leading: Icon(Icons.logout),
                   onTap: () {
-                    Provider.of<AuthProvider>(context, listen: false).logout();
+                    Provider.of<AuthProvider>(context, listen: false).logout(context);
                   },
                 ),
+
               ],
             );
           }

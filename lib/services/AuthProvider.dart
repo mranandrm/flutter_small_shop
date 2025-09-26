@@ -4,6 +4,7 @@ import 'package:dio/dio.dart' as Dio;
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_small_shop/models/User.dart';
+import 'package:flutter_small_shop/screens/LoginScreen.dart';
 import 'package:http/http.dart' as http;
 
 import '../util/Constants.dart';
@@ -88,33 +89,35 @@ class AuthProvider extends ChangeNotifier {
 
   }
 
-  void logout() async {
+  void logout(BuildContext context) async {
+    dynamic token = await storage.read(key: 'token');
 
-    dynamic token = await this.storage.read(key: 'token');
-
-    try{
-
-      Dio.Response response = await dio().get(
-          Constants.BASE_URL + Constants.LOGOUT_ROUTE,
-          options: Dio.Options(headers: {'Authorization' : 'Bearer $token'})
+    try {
+      Dio.Response response = await dio().post(
+        Constants.BASE_URL + Constants.LOGOUT_ROUTE,
+        options: Dio.Options(
+          headers: {'Authorization': 'Bearer $token'},
+        ),
       );
 
       print(response.data);
 
-      cleanup();
-      notifyListeners();
+      // Clear local storage/session
+      await storage.deleteAll();
+
+      // Redirect to login screen after logout
+      Navigator.pop(context);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen(title: 'Login')),
+      );
+
       print('logout ended');
-
+    } catch (e) {
+      print("Logout error: $e");
     }
-
-    catch(e){
-
-      print(e);
-
-    }
-
-    notifyListeners();
   }
+
 
   void cleanup() async {
 

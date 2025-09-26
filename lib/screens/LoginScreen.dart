@@ -103,7 +103,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     Provider.of<AuthProvider>(context, listen: false).login(creds: creds);
 
-                    Navigator.pop(context);
+                    Future.delayed(const Duration(seconds: 2), () {
+                      Navigator.pop(context);
+                    });
+
+                    // Navigator.pop(context);
                   }
                 },
                 style: TextButton.styleFrom(
