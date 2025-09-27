@@ -68,7 +68,7 @@ class CartProvider extends  ChangeNotifier{
   }
 
   // Add item to the cart
-  Future<void> addToCart({required Map cart, required BuildContext context}) async {
+  Future<void> addToCart({required Map cart, required BuildContext context, required Map carts}) async {
 
 
     dynamic token = await this.storage.read(key: 'token');

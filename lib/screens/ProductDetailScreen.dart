@@ -63,9 +63,8 @@ class ProductDetailScreen extends StatelessWidget {
 
                   await cartProvider.addToCart(
                     cart: cartData,
-                    context: context,
+                    context: context, carts: {},
                   );
-
 
                   Navigator.push(
                     context,

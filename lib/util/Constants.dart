@@ -10,6 +10,10 @@ class Constants {
 
   static const String Product_ROUTE ="/products";
 
+  static const String PRODUCT_FILTER_BY_CATEGORY_ROUTE = "/products?category_id=";
+
+  static const String PRODUCT_FILTER_BY_BRAND_ROUTE = "/products?brand_id=";
+
   static const String LOGIN_ROUTE = "/login";
 
   static const String LOGOUT_ROUTE = "/logout";

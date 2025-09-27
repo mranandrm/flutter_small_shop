@@ -7,11 +7,14 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_small_shop/models/HomeSlider.dart';
 import 'package:flutter_small_shop/models/Brand.dart';
 import 'package:flutter_small_shop/models/Category.dart';
+import 'package:flutter_small_shop/screens/ProductFilterByBrandScreen.dart';
 import 'package:flutter_small_shop/services/AuthProvider.dart';
 import 'package:flutter_small_shop/util/Constants.dart';
 import 'package:flutter_small_shop/widgets/CustomDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+
+import 'ProductFilterByCategoryScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   final String title;
@@ -139,41 +142,67 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> get brandSliders => brand
       .map(
-        (item) => Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.network(
-            item.logo,
-            height: 80,
-            width: 80,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) =>
-            const Icon(Icons.broken_image, size: 50),
-          ),
+        (item) => InkWell(
+  onTap: (){
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => ProductFilterByBrandScreen(
+          brand: item,
+          title: item.name,
         ),
-        const SizedBox(height: 5),
-        Text(item.name, style: const TextStyle(fontSize: 14)),
-      ],
-    ),
+      ),
+    );
+  },
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  item.logo,
+                  height: 80,
+                  width: 80,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.broken_image, size: 50),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(item.name, style: const TextStyle(fontSize: 14)),
+            ],
+          ),
+        )
   )
       .toList();
 
   List<Widget> get categorySliders => category
       .map(
-        (item) => Column(
-      children: [
-        CircleAvatar(
-          radius: 30,
-          child: Text(
-            item.name[0].toUpperCase(),
-            style: const TextStyle(fontSize: 18),
+        (item) => InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ProductFilterByCategoryScreen(
+                  category: item,
+                  title: item.name,
+                ),
+              ),
+            );
+          },
+          child:  Column(
+            children: [
+              CircleAvatar(
+                radius: 30,
+                child: Text(
+                  item.name[0].toUpperCase(),
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(item.name, style: const TextStyle(fontSize: 14)),
+            ],
           ),
         ),
-        const SizedBox(height: 5),
-        Text(item.name, style: const TextStyle(fontSize: 14)),
-      ],
-    ),
   )
       .toList();
 
