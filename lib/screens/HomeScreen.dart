@@ -39,22 +39,33 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    fetchSlider();
-    fetchBrand();
-    fetchCategory();
+    fetchAllData();
     readToken();
+  }
 
-    // Optional: Refresh slider every 10 seconds (adjust as needed)
-    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
-      fetchSlider();
-      fetchBrand();
-      fetchCategory();
+  /// Fetch all API data together
+  Future<void> fetchAllData() async {
+    await Future.wait([
+      fetchSlider(),
+      fetchBrand(),
+      fetchCategory(),
+    ]);
+
+    // If you still want periodic refresh:
+    refreshData();
+  }
+
+  /// Safer auto-refresh (every 60s instead of 3s)
+  void refreshData() {
+    Future.delayed(const Duration(seconds: 60), () async {
+      if (!mounted) return; // prevent setState after dispose
+      await fetchAllData();
+      refreshData(); // recursive call
     });
   }
 
   @override
   void dispose() {
-    _timer?.cancel();
     super.dispose();
   }
 

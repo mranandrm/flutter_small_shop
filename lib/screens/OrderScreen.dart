@@ -7,6 +7,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:http/http.dart' as http;
 
 import '../util/Constants.dart';
+import 'OrderDetailScreen.dart';
 
 class OrderScreen extends StatefulWidget {
   final String title;
@@ -105,12 +106,12 @@ class _OrderScreenState extends State<OrderScreen> {
                       subtitle: Text('Total: ₹${order.totalAmount}'),
                       trailing: Icon(Icons.arrow_forward),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => OrderDetailScreen(order: order),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OrderDetailScreen(order: order),
+                          ),
+                        );
                       },
                     ),
                   ),

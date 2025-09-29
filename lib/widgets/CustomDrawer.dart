@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_small_shop/screens/CartScreen.dart';
+import 'package:flutter_small_shop/screens/OrderScreen.dart';
 import 'package:flutter_small_shop/screens/ProductScreen.dart';
 import 'package:flutter_small_shop/screens/SettingScreen.dart';
 import 'package:provider/provider.dart';
@@ -104,7 +105,7 @@ class CustomDrawer extends StatelessWidget {
                     Navigator.pop(context);
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => CartScreen(title: 'My Orders')),
+                      MaterialPageRoute(builder: (context) => OrderScreen(title: 'My Orders')),
                     );
                   },
                 ),
