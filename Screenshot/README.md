@@ -1,0 +1,18 @@
+# Cart Page
+
+![Image](cart_page.PNG)
+![Image](Choose_payment_method_Page.png)
+![Image](Dark_theme.png)
+![Image](Filter_By_Brand_page.png)
+![Image](Filter_By_Category_Page.png)
+![Image](Home_Page.PNG)
+![Image](Login_Page.png)
+![Image](Menu_Page.png)
+![Image](My_Order_Page.png)
+![Image](Order_Detail_Page.png)
+![Image](Order_Success_Page.png)
+![Image](Place_or_confirm_order_page.png)
+![Image](Product_Detail_Page.png)
+![Image](Product_Page.png)
+![Image](Register_Page.PNG)
+![Image](Setting_Page.png)
