@@ -19,6 +19,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
 
   // Get Device Info
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -67,6 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _phoneController.dispose();
     super.dispose();
   }
 
@@ -88,6 +90,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextFormField(
                 controller: _nameController,
                 decoration: InputDecoration(labelText: 'Name'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your name';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                controller: _phoneController,
+                decoration: InputDecoration(labelText: 'Phone'),
+                keyboardType:  TextInputType.phone, // ✅ Fixed
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your name';
@@ -124,6 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                   Map creds = {
                     'name' : _nameController.text,
+                    'phone' : _phoneController.text,
                     'email' : _emailController.text,
                     'password' : _passwordController.text,
                     'device_name' : _deviceName ?? 'unknown'

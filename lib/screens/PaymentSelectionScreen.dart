@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_small_shop/screens/payment/PaymentScreen.dart';
 
 import '../models/Cart.dart';
 import 'OrderConfirmScreen.dart';
@@ -19,10 +20,33 @@ class _PaymentSelectionScreenState extends State<PaymentSelectionScreen> {
   void initState() {
     super.initState();
   }
+
+  double get totalPrice {
+    double total = 0.0;
+    for (var item in widget.products) {
+      total += item.price * item.qty;
+    }
+    return total;
+  }
+
+
   void _onPaymentMethodSelected(String? method) {
     setState(() {
       _selectedPaymentMethod = method;
     });
+
+    if (_selectedPaymentMethod == 'UPI' ||  _selectedPaymentMethod == 'CARD')
+    {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PaymentScreen(
+            products: widget.products,
+            totalPrice: totalPrice
+          )
+        ),
+      );
+    }
   }
 
   Widget _buildPaymentMethodCard({
