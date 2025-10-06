@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_small_shop/screens/BrandScreen.dart';
-import 'package:flutter_small_shop/screens/CategoryScreen.dart';
 import 'package:flutter_small_shop/screens/HomeScreen.dart';
-import 'package:flutter_small_shop/screens/LoginScreen.dart';
-import 'package:flutter_small_shop/screens/LoginScreenOtp.dart';
-import 'package:flutter_small_shop/screens/ProductScreen.dart';
-import 'package:flutter_small_shop/screens/RegisterScreen.dart';
 import 'package:flutter_small_shop/services/AuthProvider.dart';
 import 'package:flutter_small_shop/services/CartProvider.dart';
 import 'package:flutter_small_shop/services/UiProvider.dart';
