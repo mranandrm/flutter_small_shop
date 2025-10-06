@@ -5,7 +5,14 @@ import 'package:flutter_small_shop/services/CartProvider.dart';
 import 'package:flutter_small_shop/services/UiProvider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: ".env"); // Load environment variables
+
   runApp(
     MultiProvider(
       providers: [
