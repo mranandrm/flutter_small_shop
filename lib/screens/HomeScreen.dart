@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_small_shop/util/Constants.dart';
 import 'package:flutter_small_shop/widgets/CustomDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-
 import 'ProductFilterByCategoryScreen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -39,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // fetchAllData();
+    fetchAllData();
     readToken();
   }
 
@@ -84,6 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
       final response = await http.get(
         Uri.parse(Constants.BASE_URL + Constants.HOME_SLIDER_ROUTE),
       );
+      print('Response status: ${response.statusCode}');
+      print('Response body: ${response.body}');
 
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body)['data'];
@@ -97,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
       print('Error fetching slider: $e');
     }
   }
+
 
   Future<void> fetchBrand() async {
     try {

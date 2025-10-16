@@ -1,3 +1,5 @@
+import 'package:flutter_small_shop/util/Constants.dart';
+
 class HomeSlider {
   final int id;
   final String image_path;
@@ -10,7 +12,7 @@ class HomeSlider {
   factory HomeSlider.fromJson(Map<String, dynamic> json) {
     return HomeSlider(
       id: json['id'],
-      image_path: json['image_path'],
+      image_path: '${Constants.SERVER_DOMAIN}${json['image_path']}',
     );
   }
 }

@@ -1,3 +1,5 @@
+import '../util/Constants.dart';
+
 class Brand {
   final int id;
   final String name;
@@ -15,7 +17,7 @@ class Brand {
     return Brand(
         id: json['id'],
         name: json['name'],
-        logo: json['logo']
+        logo: '${Constants.SERVER_DOMAIN}${json['logo']}',
     );
   }
 }

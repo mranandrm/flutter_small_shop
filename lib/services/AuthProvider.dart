@@ -12,7 +12,6 @@ import 'dio.dart';
 
 class AuthProvider extends ChangeNotifier {
 
-
   bool _isLoggedIn = false;
 
   User? _user;
@@ -102,10 +101,8 @@ class AuthProvider extends ChangeNotifier {
 
       print(response.data);
 
-      // Clear local storage/session
       await storage.deleteAll();
 
-      // Redirect to login screen after logout
       Navigator.pop(context);
       Navigator.push(
         context,
